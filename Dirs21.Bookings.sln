@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dirs21.Bookings.Application", "Dirs21.Bookings.Application\Dirs21.Bookings.Application.csproj", "{6EF28246-B71A-42E3-9A2E-F8FC2226590A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dirs21.Bookings.Domain", "Dirs21.Bookings.Domain\Dirs21.Bookings.Domain.csproj", "{C402DFCD-A164-47F0-8EFF-65EE81105897}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dirs21.Bookings.Infrastructure", "Dirs21.Bookings.Infrastructure\Dirs21.Bookings.Infrastructure.csproj", "{F1A0C8A5-BFD4-48FA-B391-A358C8AE76A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dirs21.Bookings.API", "Dirs21.Bookings.API\Dirs21.Bookings.API.csproj", "{80B24009-7891-42DA-924F-3565F71B1BC9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dirs21.Bookings.Tests", "Dirs21.Bookings.Tests\Dirs21.Bookings.Tests.csproj", "{8B1F8DD3-522B-4853-82DC-20F8510B3E06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2B3EEE3-199B-4873-A26D-5989B4281D38}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EF28246-B71A-42E3-9A2E-F8FC2226590A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF28246-B71A-42E3-9A2E-F8FC2226590A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF28246-B71A-42E3-9A2E-F8FC2226590A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF28246-B71A-42E3-9A2E-F8FC2226590A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C402DFCD-A164-47F0-8EFF-65EE81105897}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C402DFCD-A164-47F0-8EFF-65EE81105897}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C402DFCD-A164-47F0-8EFF-65EE81105897}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C402DFCD-A164-47F0-8EFF-65EE81105897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1A0C8A5-BFD4-48FA-B391-A358C8AE76A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1A0C8A5-BFD4-48FA-B391-A358C8AE76A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1A0C8A5-BFD4-48FA-B391-A358C8AE76A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1A0C8A5-BFD4-48FA-B391-A358C8AE76A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B24009-7891-42DA-924F-3565F71B1BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B24009-7891-42DA-924F-3565F71B1BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B24009-7891-42DA-924F-3565F71B1BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B24009-7891-42DA-924F-3565F71B1BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B1F8DD3-522B-4853-82DC-20F8510B3E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B1F8DD3-522B-4853-82DC-20F8510B3E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B1F8DD3-522B-4853-82DC-20F8510B3E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B1F8DD3-522B-4853-82DC-20F8510B3E06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C26C8EF2-E8F1-4D1E-9791-98F34ED91005}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,15 @@
+global using System.Net;
+global using System.Reflection;
+global using Asp.Versioning;
+global using Dirs21.Bookings.API.Extensions;
+global using Dirs21.Bookings.API.Middlewares;
+global using Dirs21.Bookings.API.Utilities.Swagger;
+global using Dirs21.Bookings.Application.Extensions;
+global using Dirs21.Bookings.Application.Services.Mappings;
+global using Dirs21.Bookings.Domain.Exceptions;
+global using Dirs21.Bookings.Domain.Models;
+global using Dirs21.Bookings.Domain.Models.Errors;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.OpenApi.Any;
+global using Microsoft.OpenApi.Models;
+global using Swashbuckle.AspNetCore.SwaggerGen;
