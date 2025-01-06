@@ -1,5 +1,3 @@
-using Dirs21.Bookings.Infrastructure.Extensions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Load Configuration

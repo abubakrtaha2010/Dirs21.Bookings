@@ -6,5 +6,6 @@ public enum ErrorType
     ResourceNotFound,
     GetFailure,
     SaveFailure,
+    MapFailure,
     Other
 }

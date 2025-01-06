@@ -10,29 +10,14 @@ public class MappingRepository(IOptions<DatabaseSettings> options) : IMappingRep
 
     private readonly LiteDatabase _database = new(options.Value.ConnectionString);
 
-    public Task<string> GetMappingAsync(string key, string sourceType, string targetType)
+    public Task<string?> GetMappingAsync(string key, string sourceType, string targetType)
     {
         var collection = _database.GetCollection<BsonDocument>(key);
 
         var document = collection.FindOne(x => x[SourceTypeKey] == sourceType && x[TargetTypeKey] == targetType);
-        if (document is null || !document.ContainsKey(MappingKey))
-        {
-            var message = JsonSerializer.Serialize(new ErrorResponse
-            {
-                StatusCode = HttpStatusCode.NotFound,
-                ErrorType = ErrorType.ResourceNotFound,
-                UserMessage = "Mapping is not found.",
-                InternalMessage =
-                    $"Error: {nameof(ErrorType.ResourceNotFound)}.{Environment.NewLine}" +
-                    "Mapping is not found at database. Please check the input parameter values, or add the missing mapping if not exists.",
-                MoreInfo =
-                    $"Parameters: {new { key, sourceType, targetType }}."
-            });
+        if (document is null || !document.ContainsKey(MappingKey)) return Task.FromResult((string?)null);
 
-            throw new GetMappingException(message);
-        }
-
-        return Task.FromResult(document[MappingKey].AsString);
+        return Task.FromResult<string?>(document[MappingKey].AsString);
     }
 
     public async Task<string> SaveMappingAsync(string key, string sourceType, string targetType, string inputMapping)

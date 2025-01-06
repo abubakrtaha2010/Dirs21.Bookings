@@ -10,41 +10,41 @@
 [Produces("application/json")]
 public class MappingsController(IMappingService mappingService) : ControllerBase
 {
-    [HttpGet("Reservations")]
+    [HttpGet("{key}")]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetReservationMappingAsync([FromQuery] string? sourceType, [FromQuery] string? targetType)
+    public async Task<IActionResult> GetReservationMappingAsync(string key, [FromQuery] string? sourceType, [FromQuery] string? targetType)
     {
         ArgumentException.ThrowIfNullOrEmpty(sourceType);
         ArgumentException.ThrowIfNullOrEmpty(targetType);
 
-        var repoMapping = await mappingService.GetMappingAsync("Reservation", sourceType, targetType).ConfigureAwait(false);
+        var repoMapping = await mappingService.GetMappingAsync(key, sourceType, targetType).ConfigureAwait(false);
 
         return Ok(repoMapping);
     }
 
-    [HttpPut("Reservations")]
+    [HttpPut("{key}")]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-    public async Task<IActionResult> SaveReservationMappingAsync([FromQuery] string? sourceType, [FromQuery] string? targetType, [FromBody] string? inputMapping)
+    public async Task<IActionResult> SaveReservationMappingAsync(string key, [FromQuery] string? sourceType, [FromQuery] string? targetType, [FromBody] string? inputMapping)
     {
         ArgumentException.ThrowIfNullOrEmpty(sourceType);
         ArgumentException.ThrowIfNullOrEmpty(targetType);
         ArgumentException.ThrowIfNullOrEmpty(inputMapping);
 
-        var repoMapping = await mappingService.SaveMappingAsync("Reservation", sourceType, targetType, inputMapping).ConfigureAwait(false);
+        var repoMapping = await mappingService.SaveMappingAsync(key, sourceType, targetType, inputMapping).ConfigureAwait(false);
 
         return Ok(repoMapping);
     }
 
-    [HttpPost("Reservations/MapData")]
+    [HttpPost("{key}/MapData")]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
-    public async Task<IActionResult> MapReservationDataAsync([FromQuery] string? sourceType, [FromQuery] string? targetType, [FromBody] string? sourceData)
+    public async Task<IActionResult> MapReservationDataAsync(string key, [FromQuery] string? sourceType, [FromQuery] string? targetType, [FromBody] string? sourceData)
     {
         ArgumentException.ThrowIfNullOrEmpty(sourceType);
         ArgumentException.ThrowIfNullOrEmpty(targetType);
         ArgumentException.ThrowIfNullOrEmpty(sourceData);
-        
-        var targetData = await mappingService.MapDataAsync("Reservation", sourceType, targetType, sourceData).ConfigureAwait(false);
+
+        var targetData = await mappingService.MapDataAsync(key, sourceType, targetType, sourceData).ConfigureAwait(false);
 
         return Ok(targetData);
     }

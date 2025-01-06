@@ -2,6 +2,6 @@
 
 public interface IMappingRepository
 {
-    Task<string> GetMappingAsync(string key, string sourceType, string targetType);
+    Task<string?> GetMappingAsync(string key, string sourceType, string targetType);
     Task<string> SaveMappingAsync(string key, string sourceType, string targetType, string inputMapping);
 }

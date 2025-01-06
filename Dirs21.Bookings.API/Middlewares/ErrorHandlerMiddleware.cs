@@ -29,6 +29,7 @@ public class ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMi
                     break;
 
                 case SaveMappingException:
+                case MapDataException:
                     error = JsonSerializer.Deserialize<ErrorResponse>(exception.Message);
 
                     LoggerMessage

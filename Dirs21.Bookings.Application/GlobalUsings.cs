@@ -1,9 +1,11 @@
-﻿global using Dirs21.Bookings.Application.Models;
+﻿global using System.Net;
+global using System.Reflection;
+global using Dirs21.Bookings.Application.Models;
 global using Dirs21.Bookings.Application.Services.Mappings;
-global using Dirs21.Bookings.Domain.Models;
+global using Dirs21.Bookings.Domain.Exceptions;
+global using Dirs21.Bookings.Domain.Models.Errors;
 global using Dirs21.Bookings.Domain.Repositories;
 global using Dirs21.Bookings.Domain.Services;
-global using Dirs21.Bookings.Infrastructure.Models;
 global using Microsoft.CodeAnalysis.CSharp.Scripting;
 global using Microsoft.CodeAnalysis.Scripting;
 global using Microsoft.Extensions.DependencyInjection;

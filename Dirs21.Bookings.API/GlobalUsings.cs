@@ -9,6 +9,7 @@ global using Dirs21.Bookings.Application.Services.Mappings;
 global using Dirs21.Bookings.Domain.Exceptions;
 global using Dirs21.Bookings.Domain.Models;
 global using Dirs21.Bookings.Domain.Models.Errors;
+global using Dirs21.Bookings.Infrastructure.Extensions;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.OpenApi.Any;
 global using Microsoft.OpenApi.Models;
