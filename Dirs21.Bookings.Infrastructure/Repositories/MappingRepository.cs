@@ -7,9 +7,9 @@ namespace Dirs21.Bookings.Infrastructure.Repositories;
 /// </summary>
 public class MappingRepository(IOptions<DatabaseSettings> options) : IMappingRepository, IDisposable
 {
-    private const string SourceTypeKey = "SourceType";
-    private const string TargetTypeKey = "TargetType";
-    private const string MappingKey = "Mapping";
+    internal const string SourceTypeKey = "SourceType";
+    internal const string TargetTypeKey = "TargetType";
+    internal const string MappingKey = "Mapping";
 
     private readonly LiteDatabase _database = new(options.Value.ConnectionString);
 

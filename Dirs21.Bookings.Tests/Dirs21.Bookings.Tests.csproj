@@ -29,6 +29,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="Moq" Version="4.20.72" />
     <PackageReference Include="xunit" Version="2.9.2">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
@@ -36,6 +37,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dirs21.Bookings.API\Dirs21.Bookings.API.csproj" />
+    <ProjectReference Include="..\Dirs21.Bookings.Application\Dirs21.Bookings.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

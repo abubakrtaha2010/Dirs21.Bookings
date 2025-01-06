@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a reservation with details such as ID, status, name, start time, and end time.
 /// </summary>
-public record Reservation
+public record Dirs21Reservation
 {
     /// <summary>
     /// Gets or sets the unique identifier for the reservation.
