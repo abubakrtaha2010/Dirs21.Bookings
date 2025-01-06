@@ -41,7 +41,7 @@ public class MappingService(ICacheService cache, IMappingRepository repository) 
         ArgumentException.ThrowIfNullOrEmpty(targetType);
         ArgumentException.ThrowIfNullOrEmpty(inputMapping);
 
-        var mapping = "var Parameter = string.Empty; " + inputMapping;
+        var mapping = $"var Parameter = string.Empty; {inputMapping}";
         var options = GetScriptOptions();
 
         var diagnostics = CSharpScript.Create(mapping, options).Compile();

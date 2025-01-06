@@ -1,5 +1,10 @@
 ﻿namespace Dirs21.Bookings.API.Middlewares;
 
+/// <summary>
+/// Middleware to handle exceptions and provide a consistent error response format.
+/// </summary>
+/// <param name="next">The next middleware in the pipeline.</param>
+/// <param name="logger">The logger to log error details.</param>
 public class ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger)
 {
     private readonly JsonSerializerOptions _serializationOptions = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };

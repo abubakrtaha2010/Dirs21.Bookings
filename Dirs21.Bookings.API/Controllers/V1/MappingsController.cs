@@ -1,5 +1,8 @@
 ﻿namespace Dirs21.Bookings.API.Controllers.V1;
 
+/// <summary>
+/// Controller for handling reservation mappings.
+/// </summary>
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
@@ -10,6 +13,13 @@
 [Produces("application/json")]
 public class MappingsController(IMappingService mappingService) : ControllerBase
 {
+    /// <summary>
+    /// Gets the reservation mapping for the specified key, source type, and target type.
+    /// </summary>
+    /// <param name="key">The key of the mapping.</param>
+    /// <param name="sourceType">The source type of the mapping.</param>
+    /// <param name="targetType">The target type of the mapping.</param>
+    /// <returns>The reservation mapping.</returns>
     [HttpGet("{key}")]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
@@ -23,6 +33,14 @@ public class MappingsController(IMappingService mappingService) : ControllerBase
         return Ok(repoMapping);
     }
 
+    /// <summary>
+    /// Saves the reservation mapping for the specified key, source type, target type, and input mapping.
+    /// </summary>
+    /// <param name="key">The key of the mapping.</param>
+    /// <param name="sourceType">The source type of the mapping.</param>
+    /// <param name="targetType">The target type of the mapping.</param>
+    /// <param name="inputMapping">The input mapping data.</param>
+    /// <returns>The saved reservation mapping.</returns>
     [HttpPut("{key}")]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     public async Task<IActionResult> SaveReservationMappingAsync(string key, [FromQuery] string? sourceType, [FromQuery] string? targetType, [FromBody] string? inputMapping)
@@ -36,6 +54,14 @@ public class MappingsController(IMappingService mappingService) : ControllerBase
         return Ok(repoMapping);
     }
 
+    /// <summary>
+    /// Maps the reservation data from the source type to the target type for the specified key.
+    /// </summary>
+    /// <param name="key">The key of the mapping.</param>
+    /// <param name="sourceType">The source type of the mapping.</param>
+    /// <param name="targetType">The target type of the mapping.</param>
+    /// <param name="sourceData">The source data to be mapped.</param>
+    /// <returns>The mapped target data.</returns>
     [HttpPost("{key}/MapData")]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     public async Task<IActionResult> MapReservationDataAsync(string key, [FromQuery] string? sourceType, [FromQuery] string? targetType, [FromBody] string? sourceData)

@@ -2,6 +2,9 @@
 
 namespace Dirs21.Bookings.Infrastructure.Repositories;
 
+/// <summary>
+/// Repository for handling mappings between different types.
+/// </summary>
 public class MappingRepository(IOptions<DatabaseSettings> options) : IMappingRepository, IDisposable
 {
     private const string SourceTypeKey = "SourceType";
@@ -10,16 +13,32 @@ public class MappingRepository(IOptions<DatabaseSettings> options) : IMappingRep
 
     private readonly LiteDatabase _database = new(options.Value.ConnectionString);
 
+    /// <summary>
+    /// Retrieves a mapping asynchronously based on the provided key, source type, and target type.
+    /// </summary>
+    /// <param name="key">The key identifying the mapping.</param>
+    /// <param name="sourceType">The source type of the mapping.</param>
+    /// <param name="targetType">The target type of the mapping.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the mapping as a string, or null if not found.</returns>
     public Task<string?> GetMappingAsync(string key, string sourceType, string targetType)
     {
         var collection = _database.GetCollection<BsonDocument>(key);
 
         var document = collection.FindOne(x => x[SourceTypeKey] == sourceType && x[TargetTypeKey] == targetType);
-        if (document is null || !document.ContainsKey(MappingKey)) return Task.FromResult((string?)null);
+        if (document?.ContainsKey(MappingKey) != true) return Task.FromResult((string?)null);
 
         return Task.FromResult<string?>(document[MappingKey].AsString);
     }
 
+    /// <summary>
+    /// Saves a mapping asynchronously based on the provided key, source type, target type, and input mapping.
+    /// </summary>
+    /// <param name="key">The key identifying the mapping.</param>
+    /// <param name="sourceType">The source type of the mapping.</param>
+    /// <param name="targetType">The target type of the mapping.</param>
+    /// <param name="inputMapping">The input mapping to be saved.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the saved mapping as a string.</returns>
+    /// <exception cref="SaveMappingException">Thrown when the mapping could not be saved or retrieved.</exception>
     public async Task<string> SaveMappingAsync(string key, string sourceType, string targetType, string inputMapping)
     {
         var collection = _database.GetCollection<BsonDocument>(key);
@@ -85,6 +104,10 @@ public class MappingRepository(IOptions<DatabaseSettings> options) : IMappingRep
 
     private bool Disposed { get; set; }
 
+    /// <summary>
+    /// Releases the unmanaged resources used by the MappingRepository and optionally releases the managed resources.
+    /// </summary>
+    /// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
     protected virtual void Dispose(bool disposing)
     {
         if (Disposed) return;
@@ -94,6 +117,9 @@ public class MappingRepository(IOptions<DatabaseSettings> options) : IMappingRep
         Disposed = true;
     }
 
+    /// <summary>
+    /// Releases all resources used by the MappingRepository.
+    /// </summary>
     public void Dispose()
     {
         Dispose(true);
